@@ -12,11 +12,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet weak var photosCollectionView: UICollectionView!
     
+    private var ProfileHeader: ProfileHeaderCollectionReusableView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         photosCollectionView?.delegate = self
         photosCollectionView?.dataSource = self
+        
         loadData()
     }
     
@@ -24,6 +28,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      
     var images:[UIImage] = []
     let n = 20;
+    let namePhotoCell = "cellID"
+    
      
      private func loadData() {
         for i in 1...n{
@@ -33,17 +39,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
   
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return n
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! PhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: namePhotoCell, for: indexPath) as! PhotosCollectionViewCell
         cell.imageView.image = images[indexPath.item]
         cell.imageView.contentMode = .scaleAspectFill
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -52,7 +57,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileHeader", for: indexPath) as! ProfileHeaderCollectionReusableView
+    
+        cell.set(image: images, main: self)
+
         return cell
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

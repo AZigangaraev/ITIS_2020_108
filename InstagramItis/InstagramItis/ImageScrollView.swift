@@ -34,10 +34,7 @@ class ImageScrollView: UIScrollView, UIScrollViewDelegate {
         
         self.maximumZoomScale = 5
         self.minimumZoomScale = 1 / (imageZoomView.frame.size.width / UIScreen.main.bounds.width)
-        
         self.zoomScale = 1 / (imageZoomView.frame.size.width / UIScreen.main.bounds.width)
-        
-        print()
         
         self.imageZoomView.isUserInteractionEnabled = true
 
@@ -48,12 +45,9 @@ class ImageScrollView: UIScrollView, UIScrollViewDelegate {
         
         imageZoomView.frame.origin.x = (self.bounds.size.width - imageZoomView.frame.size.width)/2
         imageZoomView.frame.origin.y = (self.bounds.size.height - imageZoomView.frame.size.height)/2
-
     }
   
 
-
-    
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.imageZoomView
     }
