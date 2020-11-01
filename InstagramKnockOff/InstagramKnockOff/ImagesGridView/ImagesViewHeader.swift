@@ -9,7 +9,7 @@ import UIKit
 
 class ImagesViewHeader: UICollectionReusableView {
 
-    let button1: UIButton = {
+    private let button1: UIButton = {
         let bt = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         bt.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +23,7 @@ class ImagesViewHeader: UICollectionReusableView {
         return bt
     }()
     
-    let button2: UIButton = {
+    private let button2: UIButton = {
         let bt = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         bt.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class ImagesViewHeader: UICollectionReusableView {
         return bt
     }()
     
-    let button3: UIButton = {
+    private let button3: UIButton = {
         let bt = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         bt.translatesAutoresizingMaskIntoConstraints = false

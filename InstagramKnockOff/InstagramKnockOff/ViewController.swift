@@ -9,15 +9,15 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate {
 
-    let collectionView: ImagesView = {
+    private let collectionView: ImagesView = {
         return ImagesView(frame: CGRect.zero)
     }()
 
-    let userDataView: UserDataView = {
+    private let userDataView: UserDataView = {
         return UserDataView(frame: CGRect.zero)
     }()
 
-    let scrollView: UIScrollView = {
+    private let scrollView: UIScrollView = {
         let v = UIScrollView()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.backgroundColor =
@@ -58,7 +58,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[scrollView]-|", metrics: nil, views: dict))
     }
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.contentOffset.y += 80
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scrollView.contentOffset.y += 80
+//    }
 }

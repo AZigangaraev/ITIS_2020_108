@@ -9,7 +9,7 @@ import UIKit
 
 class ImageCell: UICollectionViewCell {
 
-    let imageView: UIImageView = UIImageView(image: UIImage(named: "autumn")!)
+    private let imageView: UIImageView = UIImageView(image: UIImage(named: "autumn")!)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,7 @@ class ImageCell: UICollectionViewCell {
         setUpConstraints()
     }
 
-    func setUpConstraints() {
+    private func setUpConstraints() {
         self.addSubview(imageView)
 
         let dict: [String: Any] = ["image": imageView]

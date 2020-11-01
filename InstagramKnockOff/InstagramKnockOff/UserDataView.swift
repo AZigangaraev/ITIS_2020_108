@@ -9,7 +9,7 @@ import UIKit
 
 class UserDataView: UIView, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    let imageView = UIImageView(image: UIImage(named: "canoe")!)
+    private let imageView = UIImageView(image: UIImage(named: "canoe")!)
     private var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
