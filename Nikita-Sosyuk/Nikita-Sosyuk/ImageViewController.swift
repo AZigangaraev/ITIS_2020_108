@@ -22,6 +22,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     
     func setImage(image: UIImage) {
         imageView.image = image
+        // так режется изображение, но зато зум нормальный, а если убрать, то скролл при зуме странный (я не разобрался до конца почему)
         imageView.contentMode = .scaleAspectFill
     }
     
