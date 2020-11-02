@@ -11,6 +11,8 @@ class ImagesView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFl
 
     private let cellId = "CellIDExample"
     private let headerId = "HeaderID"
+    
+    weak var delegate: MainViewControllerDelegate?
 
     private var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -66,14 +68,7 @@ class ImagesView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFl
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath as IndexPath) as! ImageCell
-        
-        if (indexPath.item * indexPath.row % 2 == 0) {
-            cell.setImage(image: UIImage(named: "canoe")!)
-        } else if (indexPath.item % 3 == 0) {
-            cell.setImage(image: UIImage(named: "autumn")!)
-        } else {
-            cell.setImage(image: UIImage(named: "sea")!)
-        }
+        cell.setImage(image: self.selectImage(for: indexPath))
         
         return cell
     }
@@ -107,6 +102,16 @@ class ImagesView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected \(indexPath)")
+        self.delegate?.navigateToZoomController(with: selectImage(for: indexPath))
+    }
+    
+    private func selectImage(for indexPath: IndexPath) -> UIImage {
+        if (indexPath.item * indexPath.row % 2 == 0) {
+            return UIImage(named: "canoe")!
+        } else if (indexPath.item % 3 == 0) {
+            return UIImage(named: "autumn")!
+        } else {
+            return UIImage(named: "sea")!
+        }
     }
 }
