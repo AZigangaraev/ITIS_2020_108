@@ -29,7 +29,7 @@ class ProfileTopView: UIView, UICollectionViewDataSource {
     
     func loadData() {
         for i in 1..<10 {
-            data.append(CellData(title: "№\(i)", image: UIImage(named: "\(i)") ?? #imageLiteral(resourceName: "profileImage")))
+            data.append(CellData(title: "№\(i)", image: UIImage(named: "\(i)") ?? #imageLiteral(resourceName: "9")))
         }
     }
     

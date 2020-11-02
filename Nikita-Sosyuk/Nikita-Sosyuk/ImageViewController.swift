@@ -16,23 +16,18 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.delegate = self
-        scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 2.0
-        scrollView.contentSize = .init(width: 500, height: 500)
+        scrollView.delegate = self 
+        scrollView.maximumZoomScale = 5.0
     }
     
     func setImage(image: UIImage) {
-        imageView.image = image 
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
     }
     
     // MARK: -UIScrollViewDelegate
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
-    }
-    
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        viewDidLoad()
     }
 }
