@@ -11,11 +11,22 @@ class CollectionViewController: UIViewController {
     
     @IBOutlet private var storiesCollectionView: UICollectionView!
     @IBOutlet private var imagesCollectionView: UICollectionView!
-    private let storiesCollectionViewIdentifier = "StoriesCell"
-    private let imagesCollectionViewIdentifier = "ImageCell"
     private var cellSize: CGFloat?
     
-    private var data: [UIImage] = [
+    private var storiesDataSource: StoriesCollectionViewDataSource?
+    private var imagesDataSource: ImagesCollectionViewDataSource?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        storiesDataSource = StoriesCollectionViewDataSource()
+        imagesDataSource = ImagesCollectionViewDataSource()
+        storiesCollectionView.dataSource = storiesDataSource
+        imagesCollectionView.dataSource = imagesDataSource
+        storiesDataSource?.data = dataForStories
+        imagesDataSource?.data = dataForImages
+    }
+    
+    private var dataForImages: [UIImage] = [
         UIImage(named: "1")!,
         UIImage(named: "2")!,
         UIImage(named: "3")!,
@@ -48,49 +59,13 @@ class CollectionViewController: UIViewController {
     ]
 }
 
-extension CollectionViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count: Int
-        switch collectionView {
-        case imagesCollectionView:
-            count = data.count
-            break
-        case storiesCollectionView:
-            count = dataForStories.count
-            break
-        default:
-            count = 0
-        }
-        return count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let image: UIImage
-        if collectionView == imagesCollectionView {
-            let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: imagesCollectionViewIdentifier, for: indexPath) as? ImageCustomCell
-            image = data[indexPath.item]
-            cellA?.setImageOfCollection(image: image)
-                
-            return cellA ?? UICollectionViewCell()
-        } else {
-            let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: storiesCollectionViewIdentifier, for: indexPath) as? ImageCustomCell
-            image = dataForStories[indexPath.item]
-            cellB?.setImageOfStories(image: image)
-            cellB?.storiesStyle(size: cellSize ?? CGFloat(0))
-            
-            return cellB ?? UICollectionViewCell()
-        }
-    }
-}
-
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var value = UIScreen.main.bounds.width / 3 - 1
         if collectionView == storiesCollectionView {
             value = UIScreen.main.bounds.width / 5
-            cellSize = value
+            storiesDataSource?.cellSize = value
         }
         return CGSize(width: value, height: value)
     }
@@ -110,7 +85,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let image: UIImage
         if collectionView == imagesCollectionView {
-            image = data[indexPath.item]
+            image = dataForImages[indexPath.item]
         } else {
             image = dataForStories[indexPath.item]
         }
