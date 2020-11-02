@@ -8,6 +8,12 @@
 import UIKit
 
 class StoriesCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    
+  @IBOutlet private weak var imageView: UIImageView!
+  @IBOutlet private weak var label: UILabel!
+
+  func set(image: UIImage, text: String) {
+    imageView.image = image
+    imageView.contentMode = .scaleAspectFill
+    label.text = text
+  }
 }

@@ -19,6 +19,7 @@
 		0A525631254AF7EB00F80584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A52562F254AF7EB00F80584 /* LaunchScreen.storyboard */; };
 		0A52563C254AF7EC00F80584 /* InstagramItisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52563B254AF7EC00F80584 /* InstagramItisTests.swift */; };
 		0A525647254AF7EC00F80584 /* InstagramItisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A525646254AF7EC00F80584 /* InstagramItisUITests.swift */; };
+		0AAE3F28254DEE94002D7EF7 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AAE3F27254DEE94002D7EF7 /* Colors.xcassets */; };
 		0AFFE24D254C6010008C9586 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFFE24C254C6010008C9586 /* ProfileHeaderCollectionReusableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		0A525642254AF7EC00F80584 /* InstagramItisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramItisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A525646254AF7EC00F80584 /* InstagramItisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramItisUITests.swift; sourceTree = "<group>"; };
 		0A525648254AF7EC00F80584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AAE3F27254DEE94002D7EF7 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		0AFFE24C254C6010008C9586 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				0A05904F254C89420052036C /* PhotoViewController.swift */,
 				0A059054254CC04C0052036C /* StoriesCollectionViewCell.swift */,
 				0A52562A254AF7E900F80584 /* Main.storyboard */,
+				0AAE3F27254DEE94002D7EF7 /* Colors.xcassets */,
 				0A52562D254AF7EB00F80584 /* Assets.xcassets */,
 				0A52562F254AF7EB00F80584 /* LaunchScreen.storyboard */,
 				0A525632254AF7EB00F80584 /* Info.plist */,
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A525631254AF7EB00F80584 /* LaunchScreen.storyboard in Resources */,
+				0AAE3F28254DEE94002D7EF7 /* Colors.xcassets in Resources */,
 				0A52562E254AF7EB00F80584 /* Assets.xcassets in Resources */,
 				0A52562C254AF7E900F80584 /* Main.storyboard in Resources */,
 			);
@@ -463,7 +467,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ios.InstagramItis;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.InstagramIti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -482,7 +486,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ios.InstagramItis;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.InstagramIti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
