@@ -265,33 +265,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="mSM-o2-33A" customClass="ImageScrollView" customModule="Nikita_Sosyuk" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="mSM-o2-33A" customClass="ImageScrollView" customModule="Nikita_Sosyuk" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YeA-qP-ghy" userLabel="Content View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0r-HC-l1e">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Yz-Bn-tUa">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="5Yz-Bn-tUa" secondAttribute="bottom" id="5R1-cY-kpu"/>
-                                            <constraint firstItem="5Yz-Bn-tUa" firstAttribute="leading" secondItem="YeA-qP-ghy" secondAttribute="leading" id="Sot-q7-uwK"/>
-                                            <constraint firstItem="5Yz-Bn-tUa" firstAttribute="top" secondItem="YeA-qP-ghy" secondAttribute="top" id="g4B-D3-Cfz"/>
-                                            <constraint firstAttribute="trailing" secondItem="5Yz-Bn-tUa" secondAttribute="trailing" id="w4N-Mg-xZG"/>
-                                        </constraints>
-                                    </view>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="YeA-qP-ghy" firstAttribute="width" secondItem="mSM-o2-33A" secondAttribute="width" id="9fI-4z-akG"/>
-                                    <constraint firstItem="YeA-qP-ghy" firstAttribute="height" secondItem="mSM-o2-33A" secondAttribute="height" id="Jfg-3g-up3"/>
-                                    <constraint firstAttribute="trailing" secondItem="YeA-qP-ghy" secondAttribute="trailing" id="KDM-ik-eW7"/>
-                                    <constraint firstItem="YeA-qP-ghy" firstAttribute="leading" secondItem="mSM-o2-33A" secondAttribute="leading" id="ZC9-an-cV0"/>
-                                    <constraint firstItem="YeA-qP-ghy" firstAttribute="top" secondItem="mSM-o2-33A" secondAttribute="top" id="qjL-uR-fuE"/>
-                                    <constraint firstAttribute="bottom" secondItem="YeA-qP-ghy" secondAttribute="bottom" id="u2a-TG-zgM"/>
-                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="MfB-xv-vwu"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="EfI-Cf-WKB"/>
                             </scrollView>
@@ -299,14 +280,14 @@
                         <viewLayoutGuide key="safeArea" id="c5s-Lr-qgQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="mSM-o2-33A" firstAttribute="bottom" secondItem="GK8-VJ-bTl" secondAttribute="bottom" id="30r-El-UAX"/>
-                            <constraint firstItem="mSM-o2-33A" firstAttribute="top" secondItem="c5s-Lr-qgQ" secondAttribute="top" id="880-vJ-EWe"/>
-                            <constraint firstItem="mSM-o2-33A" firstAttribute="trailing" secondItem="c5s-Lr-qgQ" secondAttribute="trailing" id="a5D-Ev-Von"/>
-                            <constraint firstItem="mSM-o2-33A" firstAttribute="leading" secondItem="c5s-Lr-qgQ" secondAttribute="leading" id="aaJ-Ng-4wF"/>
+                            <constraint firstItem="mSM-o2-33A" firstAttribute="top" secondItem="c5s-Lr-qgQ" secondAttribute="top" id="FjA-vx-cab"/>
+                            <constraint firstItem="mSM-o2-33A" firstAttribute="bottom" secondItem="c5s-Lr-qgQ" secondAttribute="bottom" id="WfT-vU-RQH"/>
+                            <constraint firstItem="mSM-o2-33A" firstAttribute="trailing" secondItem="c5s-Lr-qgQ" secondAttribute="trailing" id="bg5-0n-2lB"/>
+                            <constraint firstItem="mSM-o2-33A" firstAttribute="leading" secondItem="c5s-Lr-qgQ" secondAttribute="leading" id="x6Q-OJ-5VG"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="5Yz-Bn-tUa" id="0ke-gb-pfX"/>
+                        <outlet property="imageView" destination="E0r-HC-l1e" id="o3x-Ze-EAf"/>
                         <outlet property="scrollView" destination="mSM-o2-33A" id="3jk-3S-PJ0"/>
                     </connections>
                 </viewController>
