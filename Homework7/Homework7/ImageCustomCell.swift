@@ -10,8 +10,17 @@ import UIKit
 class ImageCustomCell: UICollectionViewCell {
     
     @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var storiesImageView: UIImageView!
     
-    func set(image: UIImage) {
+    func setImageOfCollection(image: UIImage) {
         imageView.image = image
+    }
+    
+    func setImageOfStories(image: UIImage) {
+        storiesImageView.image = image
+    }
+    
+    func storiesStyle(size: CGFloat) {
+        storiesImageView.layer.cornerRadius = size / 2
     }
 }

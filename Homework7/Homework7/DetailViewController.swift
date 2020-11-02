@@ -26,6 +26,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // Понимаю, лишний код лучше убирать, но этот я оставил себе на память :)
+    
 //    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
     // Когда-то оно возвращало картинку к исходному размеру...
 //        scrollView.setZoomScale(1.0, animated: true)
