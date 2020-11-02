@@ -8,43 +8,37 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, PhotoCellDelegate {
-        
-    @IBOutlet var collectionView: UICollectionView!
+    
+    @IBOutlet private var collectionView: UICollectionView!
     private var photos: [UIImage]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.shadowImage = UIImage()
-        loadFiles()
-        collectionView.register(UINib(nibName: "ProfileInfoView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileInfoView")
-    }
-    
-    private func loadFiles() {
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        var images: [UIImage] = []
-        let files = try! fm.contentsOfDirectory(atPath: path)
-        for file in files {
-            if file.hasSuffix("jpg") {
-                images.append(UIImage(named: file)!)
-            }
+        photos = ImageLoader.loadFiles()
+        collectionView.register(ProfileInfoView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ProfileInfoView")
+        // Отдельный хэдер для TabView, чтобы он мог «прилипать» к верхней части экрана при скролле
+        collectionView.register(UINib(nibName: "TabView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TabView")
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionHeadersPinToVisibleBounds = true
         }
-        photos = images
     }
     
     // MARK: - UICollectionView
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        2
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        photos.count
+        if (section == 1) {
+            return photos.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell
-        else { fatalError("Could not dequeue cell")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { fatalError("Could not dequeue cell") }
         cell.set(photo: photos[indexPath.item])
         cell.delegate = self
         return cell
@@ -58,15 +52,27 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileInfoView", for: indexPath)
-            return headerView
-        } else {
-            fatalError("Wrong kind")
+            switch indexPath.section {
+            case 0:
+                return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileInfoView", for: indexPath)
+            case 1:
+                return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TabView", for: indexPath)
+            default:
+                break
+            }
         }
+        fatalError()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        CGSize(width: collectionView.frame.width, height: 280)
+        switch section {
+        case 0:
+            return CGSize(width: collectionView.frame.width, height: 330)
+        case 1:
+            return CGSize(width: collectionView.frame.width, height: 60)
+        default:
+            fatalError()
+        }
     }
     
     // MARK: - PhotoCellDelegate
@@ -77,4 +83,3 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICo
         navigationController?.pushViewController(scrollImageViewVC, animated: true)
     }
 }
-

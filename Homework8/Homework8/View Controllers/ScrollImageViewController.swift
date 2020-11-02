@@ -15,17 +15,13 @@ class ScrollImageViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = image
-        scrollView.contentSize = image.size
-        setZoomScale(for: image.size)
+        setZoomScale()
     }
     
-    override func viewDidLayoutSubviews() {
-        centerImage()
-    }
-    
-    private func setZoomScale(for size: CGSize) {
-        let widthScale = scrollView.frame.width / size.width
-        let heightScale = scrollView.frame.height / size.height
+    private func setZoomScale() {
+        let size = image.size
+        let widthScale = UIScreen.main.bounds.width / size.width
+        let heightScale = UIScreen.main.bounds.height / size.height
         let scale = min(widthScale, heightScale)
         
         scrollView.minimumZoomScale = scale
@@ -34,18 +30,16 @@ class ScrollImageViewController: UIViewController, UIScrollViewDelegate {
         
         let imageWidth = size.width * scale
         let imageHeight = size.height * scale
-        let newImageFrame = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
-        imageView.frame = newImageFrame
+        let imageFrame = CGRect(x: 0, y: 0, width: imageWidth, height: imageHeight)
+        imageView.frame = imageFrame
         
         centerImage()
     }
     
     private func centerImage() {
-        let screenSize = scrollView.frame.size
-        var imageViewFrame = imageView.frame
-        imageViewFrame.origin.x = imageViewFrame.size.width < screenSize.width ? (screenSize.width - imageViewFrame.size.width) / 2 : 0
-        imageViewFrame.origin.y = imageViewFrame.size.height < screenSize.height ? (screenSize.height - imageViewFrame.size.height) / 2 : 0
-        imageView.frame = imageViewFrame
+        let screenSize = UIScreen.main.bounds
+        imageView.frame.origin.x = imageView.frame.size.width < screenSize.width ? (screenSize.width - imageView.frame.size.width) / 2 : 0
+        imageView.frame.origin.y = imageView.frame.size.height < screenSize.height ? (screenSize.height - imageView.frame.size.height) / 2 : 0
     }
     
     // MARK: - UIScrollViewDelegate
