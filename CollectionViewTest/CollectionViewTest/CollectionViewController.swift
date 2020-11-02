@@ -23,13 +23,13 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        100
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionCustomCell
         else { fatalError("Could not deque cell") }
-        
+     
         cell.set(text: "\(indexPath)" + (Bool.random() ? "\(self)" : ""))
         
         return cell
