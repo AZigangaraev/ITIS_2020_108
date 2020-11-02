@@ -1,8 +1,9 @@
 //
 //  AppDelegate.swift
-//  CollectionViewTest
+//  Nikita-Sosyuk
 //
-//  Created by Teacher on 26.10.2020.
+//  Created by Nikita Sosyuk on 30.10.2020.
+//  Copyright © 2020 Nikita Sosyuk. All rights reserved.
 //
 
 import UIKit
