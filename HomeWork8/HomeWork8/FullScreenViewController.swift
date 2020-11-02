@@ -23,8 +23,6 @@ class FullScreenViewController: UIViewController{
             self.collectionView.scrollToItem(at: self.indexPath, at: .centeredVertically, animated: true)
            }
     }
-    
-
 }
 
 extension FullScreenViewController: UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

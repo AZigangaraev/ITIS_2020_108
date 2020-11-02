@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A84A9F9B255051C60059A0B1 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A9F99255051C60059A0B1 /* StoryCollectionViewCell.swift */; };
+		A84A9F9C255051C60059A0B1 /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84A9F9A255051C60059A0B1 /* StoryCollectionViewCell.xib */; };
 		A860B251254C291D00AE0F1D /* FullScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A860B250254C291D00AE0F1D /* FullScreenViewController.swift */; };
 		A860B254254C2B7E00AE0F1D /* FullScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A860B252254C2B7E00AE0F1D /* FullScreenCollectionViewCell.swift */; };
 		A860B255254C2B7E00AE0F1D /* FullScreenCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A860B253254C2B7E00AE0F1D /* FullScreenCollectionViewCell.xib */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A84A9F99255051C60059A0B1 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		A84A9F9A255051C60059A0B1 /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		A860B250254C291D00AE0F1D /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
 		A860B252254C2B7E00AE0F1D /* FullScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 		A860B253254C2B7E00AE0F1D /* FullScreenCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullScreenCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				A860B250254C291D00AE0F1D /* FullScreenViewController.swift */,
 				A860B252254C2B7E00AE0F1D /* FullScreenCollectionViewCell.swift */,
 				A860B253254C2B7E00AE0F1D /* FullScreenCollectionViewCell.xib */,
+				A84A9F99255051C60059A0B1 /* StoryCollectionViewCell.swift */,
+				A84A9F9A255051C60059A0B1 /* StoryCollectionViewCell.xib */,
 			);
 			path = HomeWork8;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 				A8716C0B254772D000533963 /* LaunchScreen.storyboard in Resources */,
 				A8716C08254772D000533963 /* Assets.xcassets in Resources */,
 				A86290DC254B05D90029E70A /* ImageCollectionViewCell.xib in Resources */,
+				A84A9F9C255051C60059A0B1 /* StoryCollectionViewCell.xib in Resources */,
 				A8716C06254772CC00533963 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84A9F9B255051C60059A0B1 /* StoryCollectionViewCell.swift in Sources */,
 				A86290DB254B05D90029E70A /* ImageCollectionViewCell.swift in Sources */,
 				A8716C03254772CC00533963 /* ViewController.swift in Sources */,
 				A86290DE254B13AE0029E70A /* PhotoGallary.swift in Sources */,

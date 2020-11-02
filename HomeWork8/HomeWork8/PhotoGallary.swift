@@ -12,7 +12,7 @@ import UIKit
 class PhotoGallary{
     
     var images: [UIImage] = []
-    
+   
     init() {
         setupGallary()
     }
@@ -21,7 +21,5 @@ class PhotoGallary{
             let image = UIImage(named: "image\(i)")!
             images.append(image)
         }
-        
     }
-   
 }
