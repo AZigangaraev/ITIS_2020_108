@@ -16,7 +16,7 @@ class CollectionCustomCell: UICollectionViewCell {
 }
 
 class CollectionViewController: UIViewController, UICollectionViewDataSource {
-    @IBOutlet private var collectionView: UICollectionView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
