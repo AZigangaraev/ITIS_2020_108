@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0E1B15254EACF800E0CA70 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0E1B14254EACF800E0CA70 /* PostViewController.swift */; };
 		ED45F59A254C6FDC00C0C015 /* StoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED45F598254C6FDC00C0C015 /* StoriesCell.swift */; };
 		ED45F59B254C6FDC00C0C015 /* StoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED45F599254C6FDC00C0C015 /* StoriesCell.xib */; };
 		ED45F59E254C70BA00C0C015 /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED45F59C254C70BA00C0C015 /* StoryCollectionViewCell.swift */; };
 		ED45F59F254C70BA00C0C015 /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED45F59D254C70BA00C0C015 /* StoryCollectionViewCell.xib */; };
+		ED45F5A2254C82F700C0C015 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED45F5A1254C82F700C0C015 /* Story.swift */; };
+		ED517639254D68D700B75398 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED517637254D68D700B75398 /* PostCollectionViewCell.swift */; };
+		ED51763A254D68D700B75398 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED517638254D68D700B75398 /* PostCollectionViewCell.xib */; };
+		ED51763C254D730E00B75398 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED51763B254D730E00B75398 /* UserData.swift */; };
 		EDA941B6254AAB8200F7E0E8 /* ProfileHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA941B5254AAB8200F7E0E8 /* ProfileHeadCell.swift */; };
 		EDA941BA254AABBA00F7E0E8 /* ProfileDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA941B9254AABBA00F7E0E8 /* ProfileDescriptionCell.swift */; };
 		EDA941BC254AABEC00F7E0E8 /* ProfileButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA941BB254AABEC00F7E0E8 /* ProfileButtonsCell.swift */; };
 		EDA941BF254ABFED00F7E0E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA941BE254ABFED00F7E0E8 /* User.swift */; };
-		EDA941C1254ABFFA00F7E0E8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA941C0254ABFFA00F7E0E8 /* Post.swift */; };
 		EDA941C3254ACA2F00F7E0E8 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA941C2254ACA2F00F7E0E8 /* ProfileHeaderView.swift */; };
 		EDDBAC2D2549E7EB0047F572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDBAC2C2549E7EB0047F572 /* AppDelegate.swift */; };
 		EDDBAC2F2549E7EB0047F572 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDBAC2E2549E7EB0047F572 /* SceneDelegate.swift */; };
@@ -26,15 +30,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED0E1B14254EACF800E0CA70 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		ED45F598254C6FDC00C0C015 /* StoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesCell.swift; sourceTree = "<group>"; };
 		ED45F599254C6FDC00C0C015 /* StoriesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoriesCell.xib; sourceTree = "<group>"; };
 		ED45F59C254C70BA00C0C015 /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED45F59D254C70BA00C0C015 /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		ED45F5A1254C82F700C0C015 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		ED517637254D68D700B75398 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED517638254D68D700B75398 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		ED51763B254D730E00B75398 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		EDA941B5254AAB8200F7E0E8 /* ProfileHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeadCell.swift; sourceTree = "<group>"; };
 		EDA941B9254AABBA00F7E0E8 /* ProfileDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDescriptionCell.swift; sourceTree = "<group>"; };
 		EDA941BB254AABEC00F7E0E8 /* ProfileButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileButtonsCell.swift; sourceTree = "<group>"; };
 		EDA941BE254ABFED00F7E0E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		EDA941C0254ABFFA00F7E0E8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		EDA941C2254ACA2F00F7E0E8 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		EDDBAC292549E7EB0047F572 /* HomeworkInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeworkInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDBAC2C2549E7EB0047F572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED45F5A0254C7EF600C0C015 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				ED45F599254C6FDC00C0C015 /* StoriesCell.xib */,
+				ED45F59D254C70BA00C0C015 /* StoryCollectionViewCell.xib */,
+				ED517638254D68D700B75398 /* PostCollectionViewCell.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
 		EDA941B4254AA80900F7E0E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +83,8 @@
 				EDA941BB254AABEC00F7E0E8 /* ProfileButtonsCell.swift */,
 				EDA941C2254ACA2F00F7E0E8 /* ProfileHeaderView.swift */,
 				ED45F598254C6FDC00C0C015 /* StoriesCell.swift */,
-				ED45F599254C6FDC00C0C015 /* StoriesCell.xib */,
 				ED45F59C254C70BA00C0C015 /* StoryCollectionViewCell.swift */,
-				ED45F59D254C70BA00C0C015 /* StoryCollectionViewCell.xib */,
+				ED517637254D68D700B75398 /* PostCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -76,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				EDA941BE254ABFED00F7E0E8 /* User.swift */,
-				EDA941C0254ABFFA00F7E0E8 /* Post.swift */,
+				ED45F5A1254C82F700C0C015 /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +117,7 @@
 		EDDBAC2B2549E7EB0047F572 /* HomeworkInstagram */ = {
 			isa = PBXGroup;
 			children = (
+				ED45F5A0254C7EF600C0C015 /* Xib */,
 				EDA941BD254ABFD900F7E0E8 /* Model */,
 				EDA941B4254AA80900F7E0E8 /* View */,
 				EDDBAC402549E7FF0047F572 /* Controller */,
@@ -109,6 +127,7 @@
 				EDDBAC352549E7EE0047F572 /* Assets.xcassets */,
 				EDDBAC372549E7EE0047F572 /* LaunchScreen.storyboard */,
 				EDDBAC3A2549E7EE0047F572 /* Info.plist */,
+				ED51763B254D730E00B75398 /* UserData.swift */,
 			);
 			path = HomeworkInstagram;
 			sourceTree = "<group>";
@@ -117,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				EDDBAC412549F07D0047F572 /* ProfileViewController.swift */,
+				ED0E1B14254EACF800E0CA70 /* PostViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +201,7 @@
 			files = (
 				EDDBAC392549E7EE0047F572 /* LaunchScreen.storyboard in Resources */,
 				ED45F59F254C70BA00C0C015 /* StoryCollectionViewCell.xib in Resources */,
+				ED51763A254D68D700B75398 /* PostCollectionViewCell.xib in Resources */,
 				ED45F59B254C6FDC00C0C015 /* StoriesCell.xib in Resources */,
 				EDDBAC362549E7EE0047F572 /* Assets.xcassets in Resources */,
 				EDDBAC342549E7EB0047F572 /* Main.storyboard in Resources */,
@@ -196,15 +217,18 @@
 			files = (
 				EDA941BA254AABBA00F7E0E8 /* ProfileDescriptionCell.swift in Sources */,
 				EDA941BC254AABEC00F7E0E8 /* ProfileButtonsCell.swift in Sources */,
+				ED0E1B15254EACF800E0CA70 /* PostViewController.swift in Sources */,
+				ED51763C254D730E00B75398 /* UserData.swift in Sources */,
 				ED45F59E254C70BA00C0C015 /* StoryCollectionViewCell.swift in Sources */,
 				EDDBAC422549F07D0047F572 /* ProfileViewController.swift in Sources */,
-				EDA941C1254ABFFA00F7E0E8 /* Post.swift in Sources */,
 				EDA941C3254ACA2F00F7E0E8 /* ProfileHeaderView.swift in Sources */,
 				EDDBAC2D2549E7EB0047F572 /* AppDelegate.swift in Sources */,
 				EDDBAC2F2549E7EB0047F572 /* SceneDelegate.swift in Sources */,
 				ED45F59A254C6FDC00C0C015 /* StoriesCell.swift in Sources */,
+				ED517639254D68D700B75398 /* PostCollectionViewCell.swift in Sources */,
 				EDA941B6254AAB8200F7E0E8 /* ProfileHeadCell.swift in Sources */,
 				EDA941BF254ABFED00F7E0E8 /* User.swift in Sources */,
+				ED45F5A2254C82F700C0C015 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

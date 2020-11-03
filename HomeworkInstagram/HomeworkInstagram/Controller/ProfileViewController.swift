@@ -12,12 +12,6 @@ class ProfileViewController: UIViewController {
     
     var user = User()
     
-    private func loadUser() {
-        user = User(username: "dirtyjesuss", subname: "yung hope", profilePhoto: #imageLiteral(resourceName: "profile_photo"), followersCount: 666, followingCount: 1)
-        user.setCategoryName("Art")
-        user.setDescription("ран away")
-    }
-    
     // MARK: - View identifiers
     
     private var headerViewId = "headerCollectionReusableView"
@@ -32,20 +26,38 @@ class ProfileViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet private var photosCollectionView: UICollectionView!
+    @IBOutlet private var postsCollectionView: UICollectionView!
 
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadUser()
+        user = UserData.getUser()
         loadProfileData()
         
-        photosCollectionView.delegate = self
-        photosCollectionView.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        layout.headerReferenceSize = CGSize(width: view.frame.size.width, height: 328.0)
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        layout.itemSize = CGSize(width: (view.frame.size.width / 3) - 1,
+                                 height: (view.frame.size.width / 3) - 1)
+        postsCollectionView.collectionViewLayout = layout
+        
+        postsCollectionView.delegate = self
+        postsCollectionView.dataSource = self
+        postsCollectionView.register(PostCollectionViewCell.nib(), forCellWithReuseIdentifier: PostCollectionViewCell.identifier)
         
         self.navigationItem.title = user.username
+    }
+    
+    // MARK: - Layout
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        
     }
     
     // MARK: - Table view configure
@@ -55,7 +67,7 @@ class ProfileViewController: UIViewController {
         case subname(subname: String, categoryName: String)
         case description(description: String)
         case buttons
-        case stories
+        case stories(_ stories: [Story])
     }
     
     private var cellData: [Cell]?
@@ -67,14 +79,14 @@ class ProfileViewController: UIViewController {
                 .subname(subname: user.subname, categoryName: user.categoryName ?? ""),
                 .description(description: description),
                 .buttons,
-                .stories
+                .stories(user.stories)
             ]
         } else {
             cellData = [
                 .head(photo: user.profilePhoto, postCount: user.postsCount, followersCount: user.followersCount, followingCount: user.followingCount),
                 .subname(subname: user.subname, categoryName: user.categoryName ?? ""),
                 .buttons,
-                .stories
+                .stories(user.stories)
             ]
         }
     }
@@ -108,6 +120,8 @@ class ProfileViewController: UIViewController {
             cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 13.0)
             cell.detailTextLabel?.textColor = .lightGray
         }
+        
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -115,16 +129,23 @@ class ProfileViewController: UIViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ProfileCellIdentifier.description.rawValue, for: indexPath) as! ProfileDescriptionCell
         cell.descriptionText = description
+        
+        cell.selectionStyle = .none
         return cell
     }
     
     private func profileButtonsCell(for indexPath: IndexPath, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProfileCellIdentifier.buttons.rawValue, for: indexPath) as! ProfileButtonsCell
+        
+        cell.selectionStyle = .none
         return cell
     }
     
     private func storiesCell(for indexPath: IndexPath, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoriesCell.identifier, for: indexPath) as! StoriesCell
+        cell.userStories = user.stories
+        
+        cell.selectionStyle = .none
         return cell
     }
 }
@@ -133,6 +154,15 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let postViewController: PostViewController
+                = storyboard?.instantiateViewController(identifier: "PostViewController")
+        else { return }
+        
+        postViewController.loadViewIfNeeded()
+        postViewController.postImage = user.posts[indexPath.row]
+        show(postViewController, sender: nil)
+    }
 }
 
 // MARK: - Collection View Data Source
@@ -140,11 +170,12 @@ extension ProfileViewController: UICollectionViewDelegate {
 extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return user.postsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.identifier, for: indexPath) as! PostCollectionViewCell
+        cell.setImage(user.posts[indexPath.row])
         
         return cell
     }
@@ -156,9 +187,7 @@ extension ProfileViewController: UICollectionViewDataSource {
         
         return headerView
     }
-
 }
-
 
 // MARK: - Table View Data Source / Table View Delegate
 
@@ -194,6 +223,19 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return storiesCell(for: indexPath, from: tableView)
         default:
             fatalError("Non-implemented cell")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let cells = cellData else {
+            fatalError()
+        }
+        
+        switch cells[indexPath.row] {
+        case .stories:
+            return 90.0
+        default:
+            return UITableView.automaticDimension
         }
     }
 }

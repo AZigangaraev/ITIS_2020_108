@@ -9,10 +9,11 @@
 import UIKit
 
 class StoriesCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
-    
     static let identifier = "storiesCell"
     
-    @IBOutlet var storiesCollectionView: UICollectionView!
+    var userStories: [Story] = []
+    
+    @IBOutlet private var storiesCollectionView: UICollectionView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,10 +30,12 @@ class StoriesCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return userStories.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StoryCollectionViewCell.identifier, for: indexPath as IndexPath) as! StoryCollectionViewCell
+        cell.title = userStories[indexPath.row].title
+        cell.photo = userStories[indexPath.row].photo
         return cell
     }
     

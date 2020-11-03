@@ -12,17 +12,17 @@ class ProfileButtonsCell: UITableViewCell {
 
     @IBOutlet private var followButton: UIButton! {
         didSet {
-            roundCorners(of: followButton)
+            configure(button: followButton)
         }
     }
     @IBOutlet private var messageButton: UIButton! {
         didSet {
-            roundCorners(of: messageButton)
+            configure(button: messageButton)
         }
     }
     @IBOutlet private var moreActionsButton: UIButton! {
         didSet {
-            roundCorners(of: moreActionsButton)
+            configure(button: moreActionsButton)
         }
     }
     
@@ -38,8 +38,11 @@ class ProfileButtonsCell: UITableViewCell {
     }
     
     // MARK: - UI Helpers
-    private func roundCorners(of button: UIButton) {
-        button.layer.cornerRadius = 10
+    private func configure(button: UIButton) {
+        button.layer.cornerRadius = 5
         button.clipsToBounds = true
+        button.backgroundColor = .white
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = UIColor.lightGray.cgColor
     }
 }
