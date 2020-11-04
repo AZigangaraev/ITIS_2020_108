@@ -44,5 +44,6 @@ class ProfileButtonsCell: UITableViewCell {
         button.backgroundColor = .white
         button.layer.borderWidth = 1.0
         button.layer.borderColor = UIColor.lightGray.cgColor
+        button.backgroundColor = .systemBackground
     }
 }
